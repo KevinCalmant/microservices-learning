@@ -28,6 +28,7 @@
     <spring.boot.version>3.1.0</spring.boot.version>
     <spring.cloud.version>2022.0.3</spring.cloud.version>
     <micrometer-tracing.version>1.1.1</micrometer-tracing.version>
+    <maven.compiler.plugin.version>3.8.0</maven.compiler.plugin.version>
   </properties>
 
 
@@ -80,8 +81,27 @@
           <groupId>org.springframework.boot</groupId>
           <artifactId>spring-boot-maven-plugin</artifactId>
           <version>${spring.boot.version}</version>
+          <executions>
+            <execution>
+              <goals>
+                <goal>repackage</goal>
+              </goals>
+            </execution>
+          </executions>
         </plugin>
       </plugins>
     </pluginManagement>
+
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${maven.compiler.plugin.version}</version>
+        <configuration>
+          <source>${maven.compiler.source}</source>
+          <target>${maven.compiler.target}</target>
+        </configuration>
+      </plugin>
+    </plugins>
   </build>
 </project>
