@@ -6,7 +6,7 @@ spring:
     name: customer
   datasource:
     username: 'kecal'
-    url: jdbc:postgresql://localhost:5432/customer
+    url: jdbc:postgresql://postgres:5432/customer
     password: 'password'
   jpa:
     properties:
@@ -16,14 +16,22 @@ spring:
     hibernate:
       ddl_auto: create-drop
     show-sql: true
+  rabbitmq:
+    addresses: rabbitmq:5672
+
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka
+      defaultZone: http://eureka-server:8761/eureka
+
 logging:
   pattern:
     level: "%5p [${spring.zipkin.service.name:${spring.application.name:}},%X{traceId:-},%X{spanId:-}]"
+
 management:
+  zipkin:
+    tracing:
+      endpoint: http://zipkin:9411/api/v2/spans
   tracing:
     sampling:
       probability: 1.0
