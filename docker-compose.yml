@@ -84,6 +84,7 @@ services:
     depends_on:
       - zipkin
       - eureka-server
+      - postgres
       - rabbitmq
 
   notification:
@@ -99,6 +100,7 @@ services:
     depends_on:
       - zipkin
       - eureka-server
+      - postgres
       - rabbitmq
 
   fraud:
@@ -114,6 +116,7 @@ services:
     depends_on:
       - zipkin
       - eureka-server
+      - postgres
 
 networks:
   postgres:
