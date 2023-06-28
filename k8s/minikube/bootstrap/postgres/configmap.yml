@@ -3,6 +3,6 @@ kind: ConfigMap
 metadata:
   name: postgres-config
 data:
-  POSTGRES_DB: 'kecalservices'
+  POSTGRES_DB: 'kecal'
   POSTGRES_USER: 'kecal'
   POSTGRES_PASSWORD: 'password'

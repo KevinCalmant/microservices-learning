@@ -7,7 +7,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-@FeignClient("notification")
+@FeignClient(
+    name = "notification",
+    url = "${clients.notification.url}"
+)
 public interface NotificationClient {
     @PostMapping(path = "api/v1/notifications")
     @ResponseStatus(HttpStatus.CREATED)
