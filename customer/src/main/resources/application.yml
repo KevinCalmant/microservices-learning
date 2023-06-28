@@ -18,8 +18,7 @@ spring:
     show-sql: true
 eureka:
   client:
-    serviceUrl:
-      defaultZone: http://localhost:8761/eureka
+    enabled: false
 logging:
   pattern:
     level: "%5p [${spring.zipkin.service.name:${spring.application.name:}},%X{traceId:-},%X{spanId:-}]"
